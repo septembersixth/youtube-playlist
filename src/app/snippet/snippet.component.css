@@ -1,0 +1,122 @@
+.box {
+  width: 100%;
+  padding: 1em;
+}
+
+img.thumbnail {
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 180px;
+}
+
+.show {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  background: #fff;
+  display: block;
+}
+
+.show:hover {
+  cursor: pointer;
+}
+
+.show .mask {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  bottom: 0;
+  left: 0;
+}
+
+.show .content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+  transition: all 0.2s ease-in-out;
+  opacity: 0.8;
+  display: flex;
+  padding: 1em;
+}
+
+.show h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  color: rgb(88, 226, 194);
+  opacity: 1;
+  margin: 0;
+  padding: 0;
+  transition: all 0.2s ease-in-out;
+  flex: 1;
+  text-align: left;
+}
+
+.play {
+  flex: 0;
+  width: 1.4em;
+  height: 1.4em;
+}
+
+.show img {
+  transition: all 0.2s linear;
+}
+
+.show .mask {
+  opacity: 1;
+  background-color: rgba(0,0,0, 0.4);
+  transition: all 0.4s ease-in-out;
+}
+
+.show:hover img {
+  transform: scale(1.2);
+}
+
+.show:hover .mask {
+  opacity: 1;
+}
+
+.show:hover h2 {
+  opacity: 1;
+}
+
+@media (min-width: 50em) {
+  .container {
+    height: 230px;
+  }
+
+ .show h2 {
+   opacity: 0;
+   font-size: 0.8rem;
+ }
+
+  .show .mask {
+    opacity: 0;
+  }
+
+  .flexbox {
+    display: flex;
+    width: 100%;
+  }
+
+  .box {
+    flex: 1;
+    width: 400px;
+    height: 450px;
+    margin: 1em;
+  }
+}
+
+@media (min-width: 70em) {
+  .box {
+    width: 450px;
+    height: 500px;
+  }
+}

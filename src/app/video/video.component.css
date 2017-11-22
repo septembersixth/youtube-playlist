@@ -1,0 +1,68 @@
+.container {
+  min-height: 100%;
+  width: 290px;
+  height: 160px;
+  margin: 0 auto;
+  color: white;
+  padding: 1em;
+}
+
+.youtubePlayer {
+  padding: 0;
+  margin: 0;
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  color: rgb(88, 226, 194);
+}
+
+.back {
+  color: rgb(88, 226, 194);
+  margin: 1em 0;
+  display: block;
+  text-decoration: none;
+  font-size: 0.7rem;
+}
+
+.back:before {
+  content: '';
+  display: inline-block;
+  margin-right: 5px;
+  background: url('../../assets/images/back_arrow.svg') no-repeat;
+  position: relative;
+  top: 0.1em;
+  width: 12px;
+  height: 15px;
+}
+
+.back:hover {
+  cursor: pointer;
+}
+
+@media (min-width: 50em) {
+  .youtubePlayer {
+    width: 600px;
+    height: 330px;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+  }
+
+  .container {
+    display: flex;
+  }
+
+  iframe {
+    flex: 1;
+  }
+
+  .content {
+    flex: 0 0 250px;
+    margin-left: 1em;
+  }
+}

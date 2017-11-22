@@ -1,0 +1,6 @@
+<div class="flexbox">
+<div *ngFor="let item of (playlist && playlist.items ? playlist.items : [])">
+    <snippet [detail]="item">
+    </snippet>
+</div>
+</div>

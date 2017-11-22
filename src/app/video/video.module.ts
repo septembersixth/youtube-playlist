@@ -1,20 +1,17 @@
-import {NgModule, Component} from '@angular/core'
+import {NgModule} from '@angular/core'
 import {RouterModule} from '@angular/router'
+import {VideoComponent} from "./video.component";
+import {CommonModule} from "@angular/common";
 
-@Component({
-  selector: 'lazy-view',
-  template: `<h3>i'm lazy</h3>`
-})
-export class LazyComponent {}
 
 @NgModule({
-  declarations: [LazyComponent],
+  declarations: [VideoComponent],
   imports: [
+    CommonModule,
     RouterModule.forChild([
-      { path: '', component: LazyComponent, pathMatch: 'full'}
+      { path: ':id', component: VideoComponent}
     ])
   ]
 })
-export class LazyModule {
-
+export class VideoModule {
 }

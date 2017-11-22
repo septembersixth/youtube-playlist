@@ -1,16 +1,30 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {PlaylistService} from "../playlist.service";
 
 @Component({
   selector: 'home',
-  template: `<h3>{{ message }}</h3>`
+  templateUrl: 'home.component.html',
+  styleUrls: ['home.component.css']
 })
-export class HomeComponent implements OnInit {
-  public message: string;
+export class HomeComponent implements OnInit, OnDestroy {
 
-  constructor() {}
+  playlist;
+  playlistSub;
+
+  constructor(
+    private playlistService: PlaylistService
+  ) {}
 
   ngOnInit() {
-    this.message = 'Hello';
+    this.playlistSub = this.playlistService.playlist$
+      .subscribe(playlist => {
+        this.playlist = playlist;
+      })
+  }
+
+  ngOnDestroy() {
+    if (this.playlistSub) {
+      this.playlistSub.unsubscribe();
+    }
   }
 }

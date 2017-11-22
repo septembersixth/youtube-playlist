@@ -1,1 +1,68 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'AlfaSlabOne';
+  src: url('./assets/fonts/Alfa_Slab_One/AlfaSlabOne-Regular.ttf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('./assets/fonts/Roboto/Roboto-Regular.ttf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('./assets/fonts/Roboto/Roboto-Bold.ttf');
+  font-weight: bold;
+}
+
+:root {
+  box-sizing: border-box;
+  font-size: calc(1vw + 0.6em);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+:focus {
+  outline: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  padding: 0;
+  margin: 0;
+  background: url('assets/images/main_bg.png');
+}
+
+@media (min-width: 50em) {
+  body {
+  background-size: cover;
+  }
+}
+
+
+.date {
+  color: #cccccc;
+  font-size: 1.05rem;
+  margin: 0.7em 0;
+}
+
+.description {
+  color: #aaaaaa;
+  margin: 0;
+  font-size: 1rem;
+}
+
+@media (min-width: 50em) {
+  .date {
+    font-size: 0.72rem;
+  }
+
+  .description {
+    font-size: 0.7rem;
+  }
+}

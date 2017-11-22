@@ -1,16 +1,19 @@
-<ul>
-  <li *ngFor="let item of (data && data.items ? data.items : [])">
-    {{ item.snippet.resourceId.videoId }}
-    {{ item.snippet.thumbnails?.medium.url }}
-    <p>{{ item.contentDetails.videoPublishedAt }}</p>
-    <p>{{ item.snippet.title }}</p>
-    <p>{{ item.snippet.description }}</p>
-    <img [src]="item.snippet.thumbnails?.medium.url"/>
+<div class="box" (click)="goVideo(detail.snippet.resourceId.videoId)">
+  <div class="container">
+    <div class="show show-first">
+      <img [src]="detail.snippet.thumbnails?.medium.url" class="thumbnail"/>
 
-    <iframe class="youtube-player" type="text/html" width="480" height="385" src="http://www.youtube.com/embed/Y69gu2xv25s"></iframe>
-  </li>
-</ul>
+      <div class="mask">
+        <div class="content">
+          <h2>{{ detail.snippet.title }}</h2>
 
-<pre>
-  {{ data | json }}
-</pre>
+          <img src="../../assets/images/play_button.svg" class="play"/>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <p class="date">Published on {{ detail.contentDetails.videoPublishedAt | date:'mediumDate' }}</p>
+  <p class="description">{{ detail.snippet.description | slice:0:200}} [...]</p>
+</div>

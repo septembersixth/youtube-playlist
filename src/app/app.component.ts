@@ -1,17 +1,26 @@
-import { Component } from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {PlaylistService} from "./playlist.service";
 
 @Component({
   selector: 'app-root',
-  template: `
-  <h1>Universal Demo using Angular and Angular CLI</h1>
-  <a routerLink="/">Home</a>
-  <a routerLink="/lazy">Lazy</a>
-  <a routerLink="/lazy/nested">Lazy_Nested</a>
-  <router-outlet></router-outlet>
-  `,
-  styles: []
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
 
+  sub;
+
+  constructor(
+    private playlistService: PlaylistService
+  ) {}
+
+  ngOnInit() {
+    this.sub = this.playlistService.load();
+  }
+
+  ngOnDestroy() {
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
+  }
 }
